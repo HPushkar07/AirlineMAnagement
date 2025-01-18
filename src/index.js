@@ -1,14 +1,17 @@
 import express from 'express';
-import dotenv from 'dotenv';
-dotenv.config();
+import bodyParser from 'body-parser';
+import { serverConfig } from './config/serverConfig.js';
 
-const app = express();
-const port = process.env.PORT ||4000 ;
+const setUpAndStartServer = async () => {
+    
+    const app = express();
+    const Port = serverConfig.port || 4000; 
 
-app.get('/', (req, res) =>{
-    res.send(`hiii from local`);
-})
+    app.use(bodyParser.json());
 
-app.listen(port, ()=>{
-    console.log(`server is running at port ${port}..`);
-})
+    app.listen(Port, () => {
+        console.log(`Server Started at ${Port}...`);
+    });
+}
+
+setUpAndStartServer();
