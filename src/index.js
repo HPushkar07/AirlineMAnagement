@@ -1,6 +1,6 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import { serverConfig } from './config/serverConfig.js';
+const express = require('express');
+const bodyParser = require('body-parser');
+const serverConfig = require('./config/serverConfig.js');
 
 const setUpAndStartServer = async () => {
     
